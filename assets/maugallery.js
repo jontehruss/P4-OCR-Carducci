@@ -1,8 +1,10 @@
-(function($) {
-  $.fn.mauGallery = function(options) {
+(function ($) {
+  $.fn.mauGallery = function (options) {
     var options = $.extend($.fn.mauGallery.defaults, options);
     var tagsCollection = [];
-    return this.each(function() {
+    // ! Console
+    console.log(tagsCollection);
+    return this.each(function () {
       $.fn.mauGallery.methods.createRowWrapper($(this));
       if (options.lightBox) {
         $.fn.mauGallery.methods.createLightBox(
@@ -12,10 +14,11 @@
         );
       }
       $.fn.mauGallery.listeners(options);
-
+      // ! Console
+      console.log(tagsCollection);
       $(this)
         .children(".gallery-item")
-        .each(function(index) {
+        .each(function (index) {
           $.fn.mauGallery.methods.responsiveImageItem($(this));
           $.fn.mauGallery.methods.moveItemInRowWrapper($(this));
           $.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);
@@ -28,7 +31,8 @@
             tagsCollection.push(theTag);
           }
         });
-
+      // ! Console
+      console.log(tagsCollection);
       if (options.showTags) {
         $.fn.mauGallery.methods.showItemTags(
           $(this),
@@ -36,7 +40,8 @@
           tagsCollection
         );
       }
-
+      // ! Console
+      console.log(tagsCollection);
       $(this).fadeIn(500);
     });
   };
@@ -48,8 +53,8 @@
     tagsPosition: "bottom",
     navigation: true
   };
-  $.fn.mauGallery.listeners = function(options) {
-    $(".gallery-item").on("click", function() {
+  $.fn.mauGallery.listeners = function (options) {
+    $(".gallery-item").on("click", function () {
       if (options.lightBox && $(this).prop("tagName") === "IMG") {
         $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
       } else {
@@ -57,6 +62,7 @@
       }
     });
 
+    // TODO : vérifier cette partie evenementOnClick
     $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
     $(".gallery").on("click", ".mg-prev", () =>
       $.fn.mauGallery.methods.prevImage(options.lightboxId)
@@ -121,21 +127,22 @@
     },
     prevImage() {
       let activeImage = null;
-      $("img.gallery-item").each(function() {
+      $("img.gallery-item").each(function () {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
           activeImage = $(this);
         }
       });
+      // TODO : Checker la construction de cette variable activeTag
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
       if (activeTag === "all") {
-        $(".item-column").each(function() {
+        $(".item-column").each(function () {
           if ($(this).children("img").length) {
             imagesCollection.push($(this).children("img"));
           }
         });
       } else {
-        $(".item-column").each(function() {
+        $(".item-column").each(function () {
           if (
             $(this)
               .children("img")
@@ -148,9 +155,9 @@
       let index = 0,
         next = null;
 
-      $(imagesCollection).each(function(i) {
+      $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
+          index = i;
         }
       });
       next =
@@ -160,7 +167,7 @@
     },
     nextImage() {
       let activeImage = null;
-      $("img.gallery-item").each(function() {
+      $("img.gallery-item").each(function () {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
           activeImage = $(this);
         }
@@ -168,13 +175,13 @@
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
       if (activeTag === "all") {
-        $(".item-column").each(function() {
+        $(".item-column").each(function () {
           if ($(this).children("img").length) {
             imagesCollection.push($(this).children("img"));
           }
         });
       } else {
-        $(".item-column").each(function() {
+        $(".item-column").each(function () {
           if (
             $(this)
               .children("img")
@@ -187,7 +194,7 @@
       let index = 0,
         next = null;
 
-      $(imagesCollection).each(function(i) {
+      $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
           index = i;
         }
@@ -195,37 +202,66 @@
       next = imagesCollection[index] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
+
     createLightBox(gallery, lightboxId, navigation) {
-      gallery.append(`<div class="modal fade" id="${
-        lightboxId ? lightboxId : "galleryLightbox"
-      }" tabindex="-1" role="dialog" aria-hidden="true">
+      // ! console.log(ici)
+      console.log(navigation);
+
+      gallery.append(`<div class="modal fade" id="${lightboxId ? lightboxId : "galleryLightbox"
+        }" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            ${
-                              navigation
-                                ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
-                                : '<span style="display:none;" />'
-                            }
+                            ${navigation
+          ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
+          : '<span style="display:none;" />'
+        }
                             <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
-                            ${
-                              navigation
-                                ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
-                                : '<span style="display:none;" />'
-                            }
+                            ${navigation
+          ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
+          : '<span style="display:none;" />'
+        }
                         </div>
                     </div>
                 </div>
             </div>`);
+
+      // ! console.log(ici)
+      console.log(navigation);
     },
     showItemTags(gallery, position, tags) {
-      var tagItems =
-        '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
-      $.each(tags, function(index, value) {
+
+      // ? variabliser la partie class = active-tag ??
+
+      //  Découpage de la variable tagItems pour clarté
+      var tagItemText = 'Tous';
+      var tagItemSpan = `<span class="nav-link active active-tag" data-images-toggle="all">${tagItemText}</span>`;
+      var tagItems = `<li class="nav-item">${tagItemSpan}</li>`;
+
+      // var tagItems =
+      //   '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
+
+      // var navItemSpan = `<span class="nav-link"  data-images-toggle="${value}">${value}</span>`;
+      // var navItemLi = `<li class="nav-item active">${navItemSpan}</li>`;
+
+
+      console.log(tags)
+      console.log($)
+
+      $.each(tags, function (index, value) {
         tagItems += `<li class="nav-item active">
                 <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
+
+        // ! ReferenceError: value is not defined
+        // console.log(`${value}`)
       });
-      var tagsRow = `<ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul>`;
+
+
+
+      // ! ajouté un balise <nav> pour la galerie
+      var tagsRow = `<nav><ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul></nav>`;
+
+      console.log(`${tagItems}`)
 
       if (position === "bottom") {
         gallery.append(tagsRow);
@@ -244,7 +280,7 @@
 
       var tag = $(this).data("images-toggle");
 
-      $(".gallery-item").each(function() {
+      $(".gallery-item").each(function () {
         $(this)
           .parents(".item-column")
           .hide();

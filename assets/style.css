@@ -50,6 +50,12 @@ body {
 	position: relative;
 }
 
+img {
+	width: 100%;
+	height: 100%;
+	/* border: solid blue; */
+}
+
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -62,7 +68,7 @@ body {
 }
 
 .picture {
-	flex: 1;
+	/* flex: 1; */
 	margin: 0 20px;
 	z-index: 0;
 }
@@ -147,6 +153,12 @@ body {
 	font-family: Spectral;
 	font-style: italic;
 	font-weight: 300;
+	/* TODO : à vérifier */
+	font-size: 2.5rem;
+	margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+
 
 }
 .quote__author {
@@ -190,6 +202,31 @@ body {
 	z-index: 1;
 }
 
+
+.service__price > p { 
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.5rem;
+	}
+
+.service__description > h1 {
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2rem;
+}
+
+
+
 #contact {
 	margin: auto;
 	background-color: #D8D3A8 ;
@@ -199,7 +236,9 @@ body {
 }
 
 #contact .container {
-	display: flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .picture.right::before {
 	content: ' ';
@@ -211,10 +250,22 @@ body {
 	right: 0;
 	z-index: -1;
 }
+
 .form-container {
 	flex : 2;
-
 }
+
+#form-container > h1 {
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-style: normal;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.75rem;
+}
+
 form {
 	display: flex;
 	flex-direction: column;

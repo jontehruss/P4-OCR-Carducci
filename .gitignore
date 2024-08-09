@@ -1,2 +1,12 @@
 .idea
 .DS_Store
+
+# Exclude node_modules directory
+assets/node_modules/
+assets/package-lock.json
+assets/package.json
+
+# Exclude convert.js file
+assets/convert.js
+
+
