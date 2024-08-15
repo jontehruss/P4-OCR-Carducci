@@ -1,5 +1,6 @@
 body {
 	max-width: 1920px;
+	min-width: 380px;
 	margin: auto;
 }
 
@@ -488,5 +489,9 @@ input[type="submit"] {
 
 	.picture {
 		width: 80%;
+	}
+
+	.picture.right { 
+		display:none;
 	}
 }
