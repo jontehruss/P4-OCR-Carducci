@@ -305,6 +305,22 @@ footer {
 	flex: 2;
 }
 
+#form-container > ul {
+	list-style: none;
+	padding:0;	
+}
+
+#form-container > ul > li > a {
+	outline: none;
+	text-decoration: none;
+	line-height: 3;
+	color: black;
+}
+
+#form-container > ul > li > a :hover {
+	color:red;
+}
+
 #form-container>h2 {
 	box-sizing: border-box;
 	font-family: 'Inter';
