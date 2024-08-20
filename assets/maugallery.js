@@ -257,7 +257,6 @@
       });
 
 
-
       // ! ajouté un balise <nav> pour la galerie
       var tagsRow = `<nav><ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul></nav>`;
 
@@ -270,13 +269,15 @@
       } else {
         console.error(`Unknown tags position: ${position}`);
       }
-    },
+    }, 
     filterByTag() {
       if ($(this).hasClass("active-tag")) {
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+
+      // ! ajouté active à la méthode addClass - bug tabs gallerie corigé
+      $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
 
@@ -297,3 +298,4 @@
     }
   };
 })(jQuery);
+
