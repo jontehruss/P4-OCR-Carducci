@@ -102,33 +102,35 @@
 						<!-- test object-fit : cover -->
 						<div class="carousel-item active">
 							<picture>
-								<img class="img-fit-cover" src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp"
+								<img class="img-fit-cover"
+									src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp"
 									class="d-block w-100" alt="photo-ryoji-iwata">
 							</picture>
 						</div>
 						<div class="carousel-item">
 							<picture>
-								<img class="img-fit-cover" src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.webp"
+								<img class="img-fit-cover"
+									src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.webp"
 									class="d-block w-100" alt="photo-nicholas-green">
 							</picture>
 						</div>
 						<div class="carousel-item">
 							<picture>
-								<img class="img-fit-cover" src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp"
+								<img class="img-fit-cover"
+									src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp"
 									class="d-block w-100" alt="photo-edward-cisneros">
 							</picture>
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="prev">
-						<span class="carousel-control-prev-icon"
-							aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
+						data-bs-slide="prev" aria-label="Précédent">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<!-- <span class="visually-hidden">Previous</span> -->
 					</button>
 					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="next">
+						data-bs-slide="next" aria-label="Suivant">
 						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
+						<!-- <span class="visually-hidden">Next</span> -->
 					</button>
 				</div>
 			</div>
@@ -159,9 +161,11 @@
 			<div class="gallery" style="display: none">
 				<img data-gallery-tag="Concert" class="gallery-item" alt="photo-collection Concert-01 Nina-Carducci"
 					src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp">
-				<img data-gallery-tag="Entreprises" class="gallery-item" alt="photo-collection Entreprises-01 Nina-Carducci"
+				<img data-gallery-tag="Entreprises" class="gallery-item"
+					alt="photo-collection Entreprises-01 Nina-Carducci"
 					src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp">
-				<img data-gallery-tag="Entreprises" class="gallery-item" alt="photo-collection Entreprises-02 Nina-Carducci"
+				<img data-gallery-tag="Entreprises" class="gallery-item"
+					alt="photo-collection Entreprises-02 Nina-Carducci"
 					src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp">
 				<img data-gallery-tag="Mariages" class="gallery-item" alt="photo-collection Mariages-01 Nina-Carducci"
 					src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp">
@@ -173,7 +177,8 @@
 					src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.webp">
 				<img data-gallery-tag="Concert" class="gallery-item" alt="photo-collection Concert-02 Nina-Carducci"
 					src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp">
-				<img data-gallery-tag="Entreprises" class="gallery-item" alt="photo-collection Entreprises-03 Nina-Carducci"
+				<img data-gallery-tag="Entreprises" class="gallery-item"
+					alt="photo-collection Entreprises-03 Nina-Carducci"
 					src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp">
 			</div>
 		</div>
@@ -191,40 +196,43 @@
 	<div id="services">
 		<h2 class="title">Mes services</h2>
 		<div class="container">
-			<article class="service">
+			<div class="service">
 				<div class="service__description">
 					<h3>Shooting photo</h3>
 					<p>Pour capturer vos moments les plus précieux et garder un souvenir impérissable. Je me déplace en
 						Île-de-France pour réaliser vos photos</p>
 				</div>
 				<div class="service__price">
-					<p>350€/demi journée</p>
+					<span class="price__info">350€/demi journée</span>
+					</br>
 					<span>Matériel, déplacement inclus</span>
 				</div>
 
-			</article>
-			<article class="service">
+			</div>
+			<div class="service">
 				<div class="service__description">
 					<h3>Retouches</h3>
 					<p>Vous souhaitez retoucher vos photos pour un résultat professionnel ? Bénéficier d'un rendu
 						optimal pour vos publications</p>
 				</div>
 				<div class="service__price">
-					<p>50€/photo</p>
+					<span class="price__info">50€/photo</span>
+					</br>
 					<span>2 AR par photo</span>
 				</div>
-			</article>
-			<article class="service">
+			</div>
+			<div class="service">
 				<div class="service__description">
 					<h3>Album photos</h2>
 						<p>Partagez avec vos proches et vos clients les photos des moments partagés ensemble à travers
 							un album photo personnalisé</p>
 				</div>
 				<div class="service__price">
-					<p>400€ album A4</p>
+					<span class="price__info">400€ album A4</span>
+					</br>
 					<span>30 pages recto/verso</span>
 				</div>
-			</article>
+			</div>
 		</div>
 	</div>
 	<div class="quote">
@@ -239,9 +247,9 @@
 	<div id="contact">
 		<div class="container">
 			<div id="form-container">
-				<h2>Faisons un devis pour votre projet photo</h2>
-				<p>Si vous avez des questions ou demandes particulières, n'hésitez pas à m'écrire ! <br /> Je vous
-					répondrais en moins de 24 heures.</p>
+				<h2>Faire un devis pour votre projet photo</h2>
+				<p>Si vous avez un projet photo, n'hésitez pas à m'écrire pour vos demandes particulièes, estimation de
+					prix, délais et organisation de la séance ! <br /> Je vous réponds en moins de 24 heures.</p>
 				<p>Autrement, vous pouvez m'en dire plus par téléphone.
 				<ul>
 					<li><i class="fa-regular fa-calendar"></i> Lundi au vendredi entre 10h et 19h.</li>

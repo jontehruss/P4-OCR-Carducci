@@ -2,8 +2,6 @@
   $.fn.mauGallery = function (options) {
     var options = $.extend($.fn.mauGallery.defaults, options);
     var tagsCollection = [];
-    // ! Console
-    console.log(tagsCollection);
     return this.each(function () {
       $.fn.mauGallery.methods.createRowWrapper($(this));
       if (options.lightBox) {
@@ -14,8 +12,6 @@
         );
       }
       $.fn.mauGallery.listeners(options);
-      // ! Console
-      console.log(tagsCollection);
       $(this)
         .children(".gallery-item")
         .each(function (index) {
@@ -31,8 +27,6 @@
             tagsCollection.push(theTag);
           }
         });
-      // ! Console
-      console.log(tagsCollection);
       if (options.showTags) {
         $.fn.mauGallery.methods.showItemTags(
           $(this),
@@ -40,8 +34,6 @@
           tagsCollection
         );
       }
-      // ! Console
-      console.log(tagsCollection);
       $(this).fadeIn(500);
     });
   };
@@ -62,14 +54,17 @@
       }
     });
 
-    // TODO : vérifier cette partie evenementOnClick
+
     $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
-    $(".gallery").on("click", ".mg-prev", () =>
-      $.fn.mauGallery.methods.prevImage(options.lightboxId)
-    );
-    $(".gallery").on("click", ".mg-next", () =>
+
+    $(".gallery").on("click", ".mg-prev", () => {
+      $.fn.mauGallery.methods.prevImage(options.lightboxId);
+    });
+    
+    
+    $(".gallery").on("click", ".mg-next", () => {
       $.fn.mauGallery.methods.nextImage(options.lightboxId)
-    );
+    });
   };
   $.fn.mauGallery.methods = {
     createRowWrapper(element) {
@@ -132,7 +127,6 @@
           activeImage = $(this);
         }
       });
-      // TODO : Checker la construction de cette variable activeTag
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
       if (activeTag === "all") {
@@ -157,9 +151,10 @@
 
       $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
+          index = i-1;
         }
       });
+
       next =
         imagesCollection[index] ||
         imagesCollection[imagesCollection.length - 1];
@@ -196,17 +191,15 @@
 
       $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
+          index = i+1;
         }
       });
+
       next = imagesCollection[index] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
 
     createLightBox(gallery, lightboxId, navigation) {
-      // ! console.log(ici)
-      console.log(navigation);
-
       gallery.append(`<div class="modal fade" id="${lightboxId ? lightboxId : "galleryLightbox"
         }" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -225,42 +218,22 @@
                     </div>
                 </div>
             </div>`);
-
-      // ! console.log(ici)
-      console.log(navigation);
     },
     showItemTags(gallery, position, tags) {
-
-      // ? variabliser la partie class = active-tag ??
-
       //  Découpage de la variable tagItems pour clarté
       var tagItemText = 'Tous';
       var tagItemSpan = `<span class="nav-link active active-tag" data-images-toggle="all">${tagItemText}</span>`;
       var tagItems = `<li class="nav-item">${tagItemSpan}</li>`;
 
-      // var tagItems =
-      //   '<li class="nav-item"><span class="nav-link active active-tag"  data-images-toggle="all">Tous</span></li>';
-
-      // var navItemSpan = `<span class="nav-link"  data-images-toggle="${value}">${value}</span>`;
-      // var navItemLi = `<li class="nav-item active">${navItemSpan}</li>`;
-
-
-      console.log(tags)
-      console.log($)
-
       $.each(tags, function (index, value) {
         tagItems += `<li class="nav-item active">
                 <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
-
-        // ! ReferenceError: value is not defined
-        // console.log(`${value}`)
       });
 
 
       // ! ajouté un balise <nav> pour la galerie
       var tagsRow = `<nav><ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul></nav>`;
 
-      console.log(`${tagItems}`)
 
       if (position === "bottom") {
         gallery.append(tagsRow);

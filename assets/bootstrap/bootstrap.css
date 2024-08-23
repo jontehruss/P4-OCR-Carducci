@@ -5507,6 +5507,7 @@ textarea.form-control-lg {
 .modal-content {
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
@@ -6087,6 +6088,8 @@ textarea.form-control-lg {
   display: inline-block;
   width: 2rem;
   height: 2rem;
+  /* TODO : adapter la couleur+contraste -> réglé avec aria-label */
+  /* background-color: pink; */
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: 100% 100%;
@@ -6576,6 +6579,7 @@ textarea.form-control-lg {
   align-self: stretch;
 }
 
+/* TODO : régler le problème remonté par Wave */
 .visually-hidden,
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
   position: absolute !important;

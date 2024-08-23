@@ -268,6 +268,17 @@ footer {
 	font-size: 1.5rem;
 }
 
+.price__info {
+	/* box-sizing: border-box;
+	font-family: 'Inter';
+	font-style: normal;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+	line-height: 1.2; */
+	font-size: 1.5rem;
+}
+
 .service__description>h1 {
 	box-sizing: border-box;
 	font-family: 'Inter';
@@ -283,8 +294,8 @@ footer {
 
 #contact {
 	margin: auto;
-	/* background-color: #D8D3A8; */
-	background-color: #ffffff;
+	background-color: #D8D3A8;
+
 	position: relative;
 	padding-inline: 100px;
 	padding-block: 100px;
@@ -313,6 +324,7 @@ footer {
 
 #form-container>ul {
 	list-style: none;
+	font-weight: 600;
 	padding: 0;
 }
 
