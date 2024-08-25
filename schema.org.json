@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nina Carducci - Photographe professionnelle",
+  "url": "https://nina-carducci.github.io/",
+  "logo": "https://nina-carducci.github.io/images/logo.png",
+  "image": [
+    "https://nina-carducci.github.io/images/photo_working.jpg",
+    "https://nina-carducci.github.io/images/shooting_example.jpg"
+  ],
+  "description": "Photographe professionnelle basée à Bordeaux, spécialisée dans les shootings photo, retouches, et albums photo.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "68 avenue Alsace-Lorraine",
+    "addressLocality": "Bordeaux",
+    "postalCode": "33200",
+    "addressRegion": "Nouvelle-Aquitaine",
+    "addressCountry": "FR"
+  },
+  "telephone": "05 56 67 78 89",
+  "email": "contact@nina-carducci.mail",
+  "priceRange": "€€",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:00",
+      "closes": "19:00"
+    }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "44.837789",
+    "longitude": "-0.57918"
+  },
+  "areaServed": [
+    "Bordeaux",
+    "Île de France"
+  ],
+  "sameAs": "https://www.instagram.com/ninacarducci.photo/?hl=fr"
+}
