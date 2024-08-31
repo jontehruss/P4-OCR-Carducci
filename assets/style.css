@@ -84,14 +84,9 @@ footer {
 
 }
 
-/*  ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .img-fit-cover {
 	object-fit: cover;
-	/* width: 10% */
-}
 
-#portrait-nina {
-	/* width: 10%; */
 }
 
 #bottom-camera {
@@ -136,9 +131,6 @@ footer {
 	line-height: 1.2;
 }
 
-#gallery {
-	/*	min-height: 100vh; */
-}
 
 .title {
 	text-align: center;

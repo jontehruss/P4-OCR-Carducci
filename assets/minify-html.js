@@ -2,7 +2,7 @@ const fs = require('fs');
 const minify = require('html-minifier').minify;
 
 // Lire le fichier HTML
-const html = fs.readFileSync('./index.html', 'utf8');
+const html = fs.readFileSync('../index.html', 'utf8');
 
 // Minifier le contenu HTML
 const minifiedHtml = minify(html, {
@@ -12,6 +12,6 @@ const minifiedHtml = minify(html, {
 });
 
 // Écrire le fichier minifié
-fs.writeFileSync('./index-min.html', minifiedHtml);
+fs.writeFileSync('../index-min.html', minifiedHtml);
 
 console.log('Minification terminée : index-min.html créé.');
