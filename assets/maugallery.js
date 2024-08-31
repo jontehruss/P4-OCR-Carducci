@@ -60,8 +60,8 @@
     $(".gallery").on("click", ".mg-prev", () => {
       $.fn.mauGallery.methods.prevImage(options.lightboxId);
     });
-    
-    
+
+
     $(".gallery").on("click", ".mg-next", () => {
       $.fn.mauGallery.methods.nextImage(options.lightboxId)
     });
@@ -151,7 +151,8 @@
 
       $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i-1;
+          // ! Correction Bug Défilement galerie - Ajouté décrémentation index
+          index = i - 1;
         }
       });
 
@@ -191,7 +192,8 @@
 
       $(imagesCollection).each(function (i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i+1;
+          // ! Correction Bug Défilement galerie - Ajouté incrémentation index
+          index = i + 1;
         }
       });
 
@@ -220,7 +222,7 @@
             </div>`);
     },
     showItemTags(gallery, position, tags) {
-      //  Découpage de la variable tagItems pour clarté
+      //  Découpage de la variable tagItems pour lisibilité du code
       var tagItemText = 'Tous';
       var tagItemSpan = `<span class="nav-link active active-tag" data-images-toggle="all">${tagItemText}</span>`;
       var tagItems = `<li class="nav-item">${tagItemSpan}</li>`;
@@ -230,9 +232,7 @@
                 <span class="nav-link"  data-images-toggle="${value}">${value}</span></li>`;
       });
 
-
-      // ! ajouté un balise <nav> pour la galerie
-      var tagsRow = `<nav><ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul></nav>`;
+      var tagsRow = `<div><ul class="my-4 tags-bar nav nav-pills">${tagItems}</ul></div>`;
 
 
       if (position === "bottom") {
@@ -242,14 +242,14 @@
       } else {
         console.error(`Unknown tags position: ${position}`);
       }
-    }, 
+    },
     filterByTag() {
       if ($(this).hasClass("active-tag")) {
         return;
       }
       $(".active-tag").removeClass("active active-tag");
 
-      // ! ajouté active à la méthode addClass - bug tabs gallerie corigé
+      // ! Correction Bug Onglet Actif - Ajouté active à la méthode addClass
       $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
